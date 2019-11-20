@@ -1,0 +1,29 @@
+.navbar{
+    padding: 5px;
+    text-align: right;
+}
+li{
+    padding: 10px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+}
+span{
+    margin: 20px;
+    padding: 20px;
+    display: inline;
+}
+.top-links li{ margin-right:20px;}
+.top-links li a{ color: #555;}
+.navbar-brand{ font-weight: bold;}
+.footer-area.footer--light{
+    position: fixed;
+    bottom: 0px;
+    left: 200px;
+    right: 0;
+    text-align: center;
+    padding: 15px 30px;
+    background: #e8ebef;
+    color: #61636d;
+}
+.footer-area.footer--light p{ margin-bottom: 0px; opacity: 0.5;} 

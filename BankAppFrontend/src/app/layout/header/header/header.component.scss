@@ -1,0 +1,29 @@
+.header-dark{
+    background: white;
+    box-shadow: 0px 0px 8px 0px #ccc;
+    // position: fixed;
+    // left: 0;
+    // right: 0;
+    position: fixed;
+    width: 100%;
+     }
+
+.nv-lnk li{ 
+    
+    margin-left: 35px;
+    padding-top: 8px;
+    
+}     
+.nv-lnk li a {color: #2a4b7d;font-weight: normal;text-decoration: none;}
+.header-dark .navbar{   
+    
+    color: #000;
+    font-weight: bold;
+    line-height: 37PX;}
+.navbar-brand { color:black;}
+
+.navbar-expand-lg .navbar-nav {
+    
+    margin-bottom: 6px;
+    margin-top: -1px;
+}

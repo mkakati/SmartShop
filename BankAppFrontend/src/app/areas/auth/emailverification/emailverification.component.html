@@ -1,0 +1,58 @@
+
+<div class="id1" *ngIf="modal1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form [formGroup]="emailform" (ngSubmit)="Continue()">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" placeholder="enter Email" class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && emailf.email.errors }" />
+                        <div *ngIf="submitted && emailf.email.errors" class="invalid-feedback">
+                            <div *ngIf="emailf.email.errors.required">*Email is required</div>
+                            <div *ngIf="emailf.email.errors.email">*Email must be a valid email address</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button class="btn btn-default"  (Click)="Continue()">Continue</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div  class="id1" *ngIf="modal2">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="verificationform" (ngSubmit)="checkotp()">
+                    <legend id="legend"><b></b></legend><br>
+
+                    <div class="form-group">
+                      
+                        <input type="text" minlength="4" placeholder="enter OTP" maxlength="4" formControlName="otp"  OnlyNumber="true"  class="form-control" [ngClass]="{ 'is-invalid': issubmitted && f.otp.errors }" />
+                        <div *ngIf="issubmitted && f.otp.errors" class="invalid-feedback">
+                            <div *ngIf="f.otp.errors.required">*OTP is required</div>
+                            <div *ngIf="f.otp.errors.minlength">*OTP must be of least 4 digit</div>
+                        </div>
+                    </div>
+                    
+               <div class="row">
+                    <div class="form-group col-md-6">
+                        <button class="btn btn-default" >Verify OTP</button>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <button class="btn btn-default" (click)="resend()">Resend otp</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<ngx-spinner><p style="color: cornsilk" > Loading... </p>
+</ngx-spinner>

@@ -1,0 +1,14 @@
+<div *ngIf="!isLoginUrl">
+        <app-global-header *ngIf="!islogin"></app-global-header>
+        <app-sidebar *ngIf="islogin"></app-sidebar>
+        <app-header *ngIf="islogin" ></app-header>
+</div>
+
+<router-outlet></router-outlet>
+<div *ngIf="!isLoginUrl">
+        <app-footer *ngIf="islogin"></app-footer>
+        <app-global-footer *ngIf="!islogin"></app-global-footer>
+</div>
+
+
+

@@ -1,0 +1,29 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../node_modules/ngx-toastr/toastr.css";
+/* You can add global styles to this file, and also import other style files */
+body .btn-primary {
+    color: #fff;
+    background: #28a745;
+    border-color: #28a745;
+}
+body .text-primary {
+    color: #28a745!important;
+}
+
+body .ui-sidebar-close{ display: none;}
+body .ui-sidebar-mask{ display: none;}
+body .ui-sidebar-left, body .ui-sidebar-right {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0); z-index: 11003;
+    opacity: 1 !important; top:70px;
+    width: 230px;
+    height: 100%;
+}
+
+
+html body .ui-sidebar{  
+    background: white ;    
+    background: #2a4b7d;
+    border: navajowhite;
+}

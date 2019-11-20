@@ -1,0 +1,42 @@
+<header class="header-dark">
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['/dashboard']">
+                <img src="assets/images/egre.png" width="40" height="40" class="d-inline-block align-top" alt="">
+            MiniBank
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            </button>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto navbar-right nv-lnk">
+                            <li><a [routerLink]="['/dashboard']" class="active scroll">Dashboard</a></li>
+                            <!-- <li><a [routerLink]="['/dashboard']" class="scroll">Accounts</a></li> -->
+                            <li><a [routerLink]="['/bankservice']" class="scroll" [matMenuTriggerFor]="serv" width="40" height="40" >Services</a>
+                                <mat-menu #serv="matMenu">
+                                    <button mat-menu-item [routerLink]="['/person-detail']">Details</button>
+                                    <button mat-menu-item [routerLink]="['/check-balance']">Balance</button>
+                                    <button mat-menu-item [routerLink]="['/tansaction']">Transactions</button>
+                                    <button mat-menu-item [routerLink]="['/send-money']">Send Money</button>
+                                    <button mat-menu-item [routerLink]="['/add-money']">Add Money</button>
+                                  </mat-menu></li>
+                            <li><a [routerLink]="['/bankcontact']" class="scroll">Contact</a></li>
+                            <li></li>
+                            <li><a [routerLink]="['/dashboard']"><img src="assets/images/user.png" [matMenuTriggerFor]="menu" width="40" height="40" alt="user"></a>
+                                <mat-menu #menu="matMenu">
+                                  <button mat-menu-item (click)="logout()">Logout</button>
+                                  <button mat-menu-item (click)="changepass()">Change Password</button>
+                                </mat-menu>
+                            </li>
+                        </ul>
+                        
+                </div>
+            </div>
+     </nav> 
+</header>
+
+
+
+
+
+   

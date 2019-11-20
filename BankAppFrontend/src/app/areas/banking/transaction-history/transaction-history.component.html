@@ -1,0 +1,146 @@
+<!-- <div class="content-block">
+    <div class="page-title">
+        <h3>Trasaction List</h3>
+    </div>
+    <div  class="id1">
+        <div class="container">
+            <div class="row" >
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>Date</th>
+                            <th>Credit</th>
+                            <th>Debit</th>
+                            <th>Balance</th>
+                            <th>Status</th>
+                            <th>Comments</th>
+                            <th>FromAccount</th>
+                            <th>ToAccount</th> 
+                        </tr>
+                        <tr *ngFor="let data of formdata[0]">
+                            
+                            <td> {{data.Date}}</td>
+                            <td> {{data.Credit}}</td>
+                            <td> {{data.Debit}}</td>
+                            <td> {{data.Balance}}</td>
+                            <td> {{data.Status}}</td>
+                            <td> {{data.Comments}} </td>
+                             <td>{{data.FromAccount}}</td>
+                            <td>{{data.ToAccount}}</td> 
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ -->
+ <app-header></app-header>
+ <app-sidebar></app-sidebar>
+ <!-- <mat-form-field>
+         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+       </mat-form-field>
+       
+       <div class="mat-elevation-z8">
+         <table mat-table [dataSource]="dataSource" matSort>-->
+       
+           <!-- ID Column -->
+           <!-- <ng-container matColumnDef="id">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+             <td mat-cell *matCellDef="let row"> {{row.Date}} </td>
+           </ng-container> -->
+       
+           <!-- Progress Column -->
+           <!-- <ng-container matColumnDef="progress">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header>Credit</th>
+             <td mat-cell *matCellDef="let row"> {{row.Credit}}% </td>
+           </ng-container> -->
+       
+           <!-- Name Column -->
+           <!-- <ng-container matColumnDef="name">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header> Debit </th>
+             <td mat-cell *matCellDef="let row"> {{row.Debit}} </td>
+           </ng-container> -->
+
+           <!-- <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Balance </th>
+                <td mat-cell *matCellDef="let row"> {{row.Balance}} </td>
+              </ng-container> -->
+
+              <!-- <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                    <td mat-cell *matCellDef="let row"> {{row.Status}} </td>
+                  </ng-container> -->
+
+             <!-- <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Comments </th>
+                        <td mat-cell *matCellDef="let row"> {{row.Comments}} </td>
+                 </ng-container> -->
+           <!-- Color Column -->
+           <!-- <ng-container matColumnDef="color">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>
+             <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </td>
+           </ng-container> -->
+       
+           <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+           <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+           </tr>
+         </table>
+       
+         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+       </div> --> 
+       <div class="content-block">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+        <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="Date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let element">{{element.Date | date: 'dd/MM/yyyy h:mm'}} </td>
+        </ng-container>
+        <!-- <ng-container matColumnDef="Date">
+                <th mat-header-cell *matHeaderCellDef> Time </th>
+                <td mat-cell *matCellDef="let element"> {{element.Date | date: 'h:mm'}}</td>
+            </ng-container> -->
+        <!-- Name Column -->
+        <ng-container matColumnDef="Credit">
+            <th mat-header-cell *matHeaderCellDef> Credit </th>  
+            <td mat-cell *matCellDef="let element"> {{element.Credit| number: '2.'}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Debit">
+            <th mat-header-cell *matHeaderCellDef> Debit </th>
+            <td mat-cell *matCellDef="let element"> {{element.Debit| number: '2.'}} </td>
+        </ng-container>
+    
+    
+        <ng-container matColumnDef="Balance">
+            <th mat-header-cell *matHeaderCellDef> Balance </th>
+            <td mat-cell *matCellDef="let element"> {{element.Balance| number: '2.'}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.Status}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="Comments">
+            <th mat-header-cell *matHeaderCellDef> Comments </th>
+            <td mat-cell *matCellDef="let element"> {{element.Comments}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+        
+    </table>
+    <mat-paginator  [length]="length" [pageSize]="pageSize" 
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="getServerDataNotes($event)" (ngModelChange)="getServerDataNotes($event)">
+        </mat-paginator>
+
+          </div>

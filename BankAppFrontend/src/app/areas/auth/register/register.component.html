@@ -1,0 +1,76 @@
+
+<div  class="id1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form [formGroup]="registerForm" (ngSubmit)="showdata()">
+                        <legend id="legend"><b>Sign-up</b></legend><br>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>First Name</label>
+                                <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+                                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.firstName.errors.required" class="text-danger">*First Name is required</div>
+                                    <div *ngIf="f.firstName.errors.minlength"> Name must be at least 4 characters long.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Last Name</label>
+                                <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lastName.errors.required">*Last Name is required</div>
+                                    <div *ngIf="f.lastName.errors.minlength"> Name must be at least 4 characters long.</div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- <div class="form-group">
+                                <label>Mobile number</label>
+                                <input type="text" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [textMask]="{ mask: phoneMask }"/>
+                                <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                                    <div *ngIf="f.mobile.errors.required">*Mobile number is required</div>
+                                </div>
+                            </div> -->
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">*Email is required</div>
+                                <div *ngIf="f.email.errors.email">*Email must be a valid email address</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>PIN</label>
+                            <input type="password" minlength="4" maxlength="4" formControlName="pin" 
+                             OnlyNumber="true"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pin.errors }" />
+                            <div *ngIf="submitted && f.pin.errors" class="invalid-feedback">
+                                <div *ngIf="f.pin.errors.required">*PIN is required</div>
+                                <div *ngIf="f.pin.errors.minlength">*PIN must be of least 4 digit</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm PIN</label>
+                            <input type="password" formControlName="cpin" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cpin.errors }" />
+                            <div *ngIf="submitted && f.cpin.errors" class="invalid-feedback">
+                                <div *ngIf="f.cpin.errors.required">*Confirm PIN is required</div>
+                                <div *ngIf="f.cpin.errors.mustMatch">*PIN must match</div>
+                            </div>
+                        </div>
+                   <div class="row">
+                        <div class="form-group col-md-6">
+                            <button class="btn btn-default" >Register</button>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <button class="btn btn-default" (click)="Cancel()">Cancel</button>
+                        </div>
+
+                        <ngx-spinner><p style="color: cornsilk" > Loading... </p>
+                        </ngx-spinner>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

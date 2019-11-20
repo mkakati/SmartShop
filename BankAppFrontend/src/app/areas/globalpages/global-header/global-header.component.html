@@ -1,0 +1,39 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="assets/images/egre.png" width="40" height="40" class="d-inline-block align-top" alt="">
+          MiniBank
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                    <ul class="nav navbar-nav navbar-right top-links">
+                            <li><a href="index.html" class="active scroll">Home</a></li>
+                            <li><a href="/home#about" class="scroll">About</a></li>
+                            <li><a href="/home#services" class="scroll">Services</a></li>
+                            <li><a href="/home#features" class="scroll">Features</a></li>
+                            <li><a href="/home#contact" class="scroll">Contact</a></li>
+                            <li><a [routerLink]="['/dashboard']"><img src="assets/images/user.png" [matMenuTriggerFor]="menu" width="40" height="40" alt="user"></a>
+                              <mat-menu #menu="matMenu">
+                                <button mat-menu-item [routerLink]="['/login']">Login</button>
+                                <button mat-menu-item [routerLink]="['/register']"> Register</button>
+                              </mat-menu>
+                          </li>
+                      
+                        </ul>
+                        </ul>
+                  
+                </div>
+            </div>
+              </nav> 
+
+
+
+
+
+
+
+       

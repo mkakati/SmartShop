@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4fdca6d129c0434e8247acebef567013" Name="Diagram1">
+        <EntityTypeShape EntityType="sdirecttestdbModel.Account" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.Address" Width="1.5" PointX="5.25" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.CartItem" Width="1.5" PointX="13.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.Category" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.MasterUser" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.Order" Width="1.5" PointX="7.5" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.OrdersMaster" Width="1.5" PointX="12.5" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.Product" Width="1.5" PointX="8.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.ProductImage" Width="1.5" PointX="10.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.Role" Width="1.5" PointX="3.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.Seller" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.SubCategory" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.TempCartItem" Width="1.5" PointX="10.5" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.Transaction" Width="1.5" PointX="9.75" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.UserRole" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.User" Width="1.5" PointX="3" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sdirecttestdbModel.MoneyAccount" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_SellarAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_transactions" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_OrderAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_UserAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_CItems_PID" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_CItems_UID" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_SubCat_CatId" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_Sellar_MId" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_UR_MUId" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_Users_MId" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_OrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_OrderUser" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_TId_OId" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_PId" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK__TempCartI__Produ__49EFAA97" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_PImages_PID" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_Product_SubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_ProductSellar" ManuallyRouted="false" />
+        <AssociationConnector Association="sdirecttestdbModel.FK_UR_RId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

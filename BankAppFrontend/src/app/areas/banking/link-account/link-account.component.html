@@ -1,0 +1,33 @@
+<div class="id1" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form [formGroup]="linkaccountform" (ngSubmit)="Continue()">
+                            <div class="form-group">
+                                    <label>Account Number</label>
+                                    <input type="text" placeholder="enter your account number" required minlength="7" maxlength="7" formControlName="accountno"  OnlyNumber="true"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.accountno.errors }" />
+                                    <div *ngIf="submitted && f.accountno.errors" class="invalid-feedback">
+                                        <div *ngIf="f.accountno.errors.required">*AccountNo is required</div>
+                                        <div *ngIf="f.accountno.errors.minlength">*AccountNo must be of 7 digit</div>
+                                    </div>
+                            </div>
+                                  
+                            <div class="form-group">
+                                            <label>PIN</label>
+                                            <input type="password" placeholder="enter PIN" required minlength="4" maxlength="4" formControlName="pin"  OnlyNumber="true"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pin.errors }" />
+                                            <div *ngIf="submitted && f.pin.errors" class="invalid-feedback">
+                                                <div *ngIf="f.pin.errors.required">*PIN is required</div>
+                                                <div *ngIf="f.pin.errors.minlength">*PIN must be of least 4 digit</div>
+                                            </div>
+                                        </div>
+            
+                                   
+                        <div class="form-group col-md-12">
+                            <button class="btn btn-default"  >Link your account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    

@@ -1,0 +1,55 @@
+
+<div class="id1" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form [formGroup]="userorderform" (ngSubmit)="continue()">
+                                <div class="col-md-12">
+                                    <p>Amount: {{formdata.Amount}}  </p>
+                                </div>
+                                <div class="col-md-12">
+                                        <p>OrderId: {{formdata.OrderId}} </p>
+                                </div>
+                          
+                        <div class="form-group">
+                            <label>Account Number</label>
+                            <input type="text" required minlength="7" maxlength="7" formControlName="accountno" (blur)="verifyAccount($event.target.value)"  OnlyNumber="true"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.accountno.errors }" />
+                            <div *ngIf="submitted && f.accountno.errors" class="invalid-feedback">
+                                <div *ngIf="f.accountno.errors.required">*Account Number is required</div>
+                                <div *ngIf="f.accountno.errors.minlength">*Account Number must be of 7 digit</div>
+                            </div>
+                    </div>
+                            
+                    <div class="form-group">
+                      
+                        <input type="text" placeholder="enter OTP" minlength="4" maxlength="4" formControlName="otp"  OnlyNumber="true"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.otp.errors }" />
+                        <div *ngIf="submitted && f.otp.errors" class="invalid-feedback">
+                            <div *ngIf="f.otp.errors.required">*OTP is required</div>
+                            <div *ngIf="f.otp.errors.minlength">*OTP must be of least 4 digit</div>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                            <div class="form-group col-md-6">
+                                <button class="btn btn-default" >Pay</button>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <button class="btn btn-default" (click)="Cancel()">Cancel</button>
+                            </div>
+    
+                            <ngx-spinner><p style="color: cornsilk" > Loading... </p>
+                            </ngx-spinner>
+                        </div>           
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<ngx-spinner><p style="color: cornsilk" > verifying Account... </p>
+</ngx-spinner>
+
+
+
+
+

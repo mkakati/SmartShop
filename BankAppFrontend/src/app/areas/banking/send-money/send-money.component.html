@@ -1,0 +1,50 @@
+<div class="content-block">
+<div class="id1" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form [formGroup]="sendmoneyform" (ngSubmit)="Continue()">
+                        <div class="form-group">
+                                <label><strong>Account No.</strong></label>
+                                <input type="text" required minlength="7" maxlength="7" formControlName="accountno" (blur)="verifyAccount($event.target.value)"  OnlyNumber="true"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.accountno.errors }" />
+                                <div *ngIf="submitted && f.accountno.errors" class="invalid-feedback">
+                                    <div *ngIf="f.accountno.errors.required">*AccountNo is required</div>
+                                    <div *ngIf="f.accountno.errors.minlength">*AccountNo must be of 7 digit</div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label><strong>Money to send</strong></label>
+                                <!-- <input type="text" minlength="4" formControlName="balance1"  (blur)="verifyBalance($event.target.value)"  OnlyNumber="true"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.balance1.errors }"/>
+                                 <input type="text" minlength="7" maxlength="7" formControlName="balance" (blur)="verifyBalance($event.target.value)"  OnlyNumber="true"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.balance.errors }" /> 
+                                <div *ngIf="submitted && f.balance1.errors" class="invalid-feedback">
+                                    <div *ngIf="f.balance1.errors.required">*Balance is required</div>
+                                    <div *ngIf="f.balance1.errors.minlength">*Please enter some amount </div>
+                                </div> -->
+
+                                <input type="text" required minlength="2" formControlName="balance1" (blur)="verifyBalance($event.target.value)"  OnlyNumber="true"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.balance1.errors }" />
+                                <div *ngIf="submitted && f.balance1.errors" class="invalid-feedback">
+                                    <div *ngIf="f.balance1.errors.required">*Balance is required</div>
+                                    <div *ngIf="f.balance1.errors.minlength">*Please enter some amount</div>
+                                </div>
+
+                        </div>
+                              
+                        <div class="form-group">
+                                        <label><strong>PIN</strong></label>
+                                        <input type="password" required minlength="4" maxlength="4" formControlName="pin"  OnlyNumber="true"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pin.errors }" />
+                                        <div *ngIf="submitted && f.pin.errors" class="invalid-feedback">
+                                            <div *ngIf="f.pin.errors.required">*PIN is required</div>
+                                            <div *ngIf="f.pin.errors.minlength">*PIN must be of least 4 digit</div>
+                                        </div>
+                                    </div>
+        
+                               
+                    <div class="form-group col-md-12">
+                        <button class="btn btn-default"  >Send Money</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
