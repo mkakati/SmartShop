@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sdirecttestdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Name="AccountId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Balance" Type="bigint" />
+    <Property Name="PIN" Type="nvarchar(max)" />
+    <Property Name="IsVerified" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="OTP" Type="nvarchar" MaxLength="20" />
+    <Property Name="OTP_Expiry" Type="datetime" />
+    <Property Name="OTP_Created" Type="datetime" />
+    <Property Name="PasswordResetCode" Type="nvarchar(max)" />
+    <Property Name="Link_Created" Type="datetime" />
+    <Property Name="Link_Expired" Type="datetime" />
+    <Property Name="JWTToken" Type="nvarchar(max)" />
+    <Property Name="JWT_Token_Created" Type="datetime" />
+    <Property Name="JWT_Token_Expired" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FlatNo" Type="nvarchar(max)" />
+    <Property Name="AddressLine1" Type="nvarchar(max)" />
+    <Property Name="AddressLine2" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" />
+    <Property Name="State" Type="nvarchar" MaxLength="100" />
+    <Property Name="PIN" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="CartItems">
+    <Key>
+      <PropertyRef Name="CartItemsId" />
+    </Key>
+    <Property Name="CartItemsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantity" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MasterUser">
+    <Key>
+      <PropertyRef Name="MasterUserId" />
+    </Key>
+    <Property Name="MasterUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="20" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="ResetToken" Type="nvarchar(max)" />
+    <Property Name="ResetTimeOut" Type="nvarchar(max)" />
+    <Property Name="OTP" Type="nvarchar(max)" />
+    <Property Name="OTP_Expiry" Type="datetime" />
+    <Property Name="IsVerified" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sdirecttestdb.SD.MoneyAccount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MoneyAccount">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromAccount" Type="bigint" />
+    <Property Name="ToAccount" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalAmount" Type="nvarchar(max)" />
+    <Property Name="OrderStatus" Type="nvarchar" MaxLength="100" />
+    <Property Name="PaymentStatus" Type="nvarchar" MaxLength="100" />
+    <Property Name="DeliveryDate" Type="nvarchar" MaxLength="100" />
+    <Property Name="OrderDate" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="AddressId" Type="int" />
+    <Property Name="TransactionId" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="OrdersMaster">
+    <Key>
+      <PropertyRef Name="OrdersMasterId" />
+    </Key>
+    <Property Name="OrdersMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="IsDisbursed" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="StatusFlag" Type="int" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar(max)" />
+    <Property Name="UnitPrice" Type="float" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Stock" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="SellerId" Type="int" />
+    <Property Name="SubCategoryId" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductImages">
+    <Key>
+      <PropertyRef Name="ProductImageId" />
+    </Key>
+    <Property Name="ProductImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageUrl" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="ProductId" Type="int" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Seller">
+    <Key>
+      <PropertyRef Name="SellerId" />
+    </Key>
+    <Property Name="SellerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GST_No" Type="nvarchar(max)" />
+    <Property Name="IsApproved" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="AccountId" Type="bigint" />
+    <Property Name="MasterUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategoryId" />
+    </Key>
+    <Property Name="SubCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubCategoryName" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="CategoryId" Type="int" />
+  </EntityType>
+  <EntityType Name="TempCartItems">
+    <Key>
+      <PropertyRef Name="CartItemsId" />
+    </Key>
+    <Property Name="CartItemsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantity" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="TempUserId" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Credit" Type="float" />
+    <Property Name="Debit" Type="float" />
+    <Property Name="Balance" Type="bigint" />
+    <Property Name="AccountId" Type="bigint" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Status" Type="nvarchar(max)" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="FromAccount" Type="bigint" />
+    <Property Name="ToAccount" Type="bigint" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UR_Id" />
+    </Key>
+    <Property Name="UR_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="MasterUserId" Type="int" />
+    <Property Name="RoleId" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="ModifiedBy" Type="nvarchar(max)" />
+    <Property Name="MasterUserId" Type="int" />
+  </EntityType>
+  <Association Name="FK__TempCartI__Produ__49EFAA97">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="TempCartItems" Type="Self.TempCartItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="TempCartItems">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CItems_PID">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="CartItems" Type="Self.CartItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="CartItems">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CItems_UID">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="CartItems" Type="Self.CartItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="CartItems">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderAddress">
+    <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderId">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="OrdersMaster" Type="Self.OrdersMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="OrdersMaster">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PId">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="OrdersMaster" Type="Self.OrdersMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="OrdersMaster">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PImages_PID">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductImages" Type="Self.ProductImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ProductImages">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_SubCategory">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="SubCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSellar">
+    <End Role="Seller" Type="Self.Seller" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="SellerId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="SellerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sellar_MId">
+    <End Role="MasterUser" Type="Self.MasterUser" Multiplicity="0..1" />
+    <End Role="Seller" Type="Self.Seller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MasterUser">
+        <PropertyRef Name="MasterUserId" />
+      </Principal>
+      <Dependent Role="Seller">
+        <PropertyRef Name="MasterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SellarAccount">
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+    <End Role="Seller" Type="Self.Seller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="Seller">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCat_CatId">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TId_OId">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transactions">
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UR_MUId">
+    <End Role="MasterUser" Type="Self.MasterUser" Multiplicity="0..1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MasterUser">
+        <PropertyRef Name="MasterUserId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="MasterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UR_RId">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAddress">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_MId">
+    <End Role="MasterUser" Type="Self.MasterUser" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MasterUser">
+        <PropertyRef Name="MasterUserId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="MasterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sdirecttestdbModelStoreContainer">
+    <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="CartItems" EntityType="Self.CartItems" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="MasterUser" EntityType="Self.MasterUser" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="OrdersMaster" EntityType="Self.OrdersMaster" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="ProductImages" EntityType="Self.ProductImages" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="Seller" EntityType="Self.Seller" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="TempCartItems" EntityType="Self.TempCartItems" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="SD" store:Type="Tables" />
+    <EntitySet Name="MoneyAccount" EntityType="Self.MoneyAccount" store:Type="Tables" store:Schema="SD">
+      <DefiningQuery>SELECT 
+    [MoneyAccount].[Sno] AS [Sno], 
+    [MoneyAccount].[FromAccount] AS [FromAccount], 
+    [MoneyAccount].[ToAccount] AS [ToAccount]
+    FROM [SD].[MoneyAccount] AS [MoneyAccount]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__TempCartI__Produ__49EFAA97" Association="Self.FK__TempCartI__Produ__49EFAA97">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="TempCartItems" EntitySet="TempCartItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CItems_PID" Association="Self.FK_CItems_PID">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="CartItems" EntitySet="CartItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CItems_UID" Association="Self.FK_CItems_UID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="CartItems" EntitySet="CartItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderAddress" Association="Self.FK_OrderAddress">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderId" Association="Self.FK_OrderId">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrdersMaster" EntitySet="OrdersMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderUser" Association="Self.FK_OrderUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PId" Association="Self.FK_PId">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="OrdersMaster" EntitySet="OrdersMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PImages_PID" Association="Self.FK_PImages_PID">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductImages" EntitySet="ProductImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_SubCategory" Association="Self.FK_Product_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSellar" Association="Self.FK_ProductSellar">
+      <End Role="Seller" EntitySet="Seller" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sellar_MId" Association="Self.FK_Sellar_MId">
+      <End Role="MasterUser" EntitySet="MasterUser" />
+      <End Role="Seller" EntitySet="Seller" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SellarAccount" Association="Self.FK_SellarAccount">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="Seller" EntitySet="Seller" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCat_CatId" Association="Self.FK_SubCat_CatId">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="SubCategory" EntitySet="SubCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TId_OId" Association="Self.FK_TId_OId">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transactions" Association="Self.FK_transactions">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UR_MUId" Association="Self.FK_UR_MUId">
+      <End Role="MasterUser" EntitySet="MasterUser" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UR_RId" Association="Self.FK_UR_RId">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAddress" Association="Self.FK_UserAddress">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_MId" Association="Self.FK_Users_MId">
+      <End Role="MasterUser" EntitySet="MasterUser" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

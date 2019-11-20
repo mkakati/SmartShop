@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<div class="container" style="margin-top: 100px;">
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+                                <!-- <th style="width:10%">OrderStatus</th> -->
+                                <th style="width:10%" class="text-center">OrderDate</th>
+                                <th style="width:10%">DeliveryDate</th>
+                                <th style="width:10%">PaymentStatus</th>
+							    <th style="width:10%">TotalAmount</th>
+						    	<th style="width:10%">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let order of myorders">
+							<!-- <td data-th="OrderStatus">{{order.OrderStatus}}</td>	 -->
+							<td data-th="OrderDate">{{order.OrderDate}}</td>
+							<td data-th="DeliveryDate" >{{order.DeliveryDate}}</td>
+                            <td data-th="PaymentStatus" >{{order.PaymentStatus}}</td>
+                            <td data-th="TotalAmount" >{{order.TotalAmount}}</td>
+							<td class="actions" data-th="">
+								<button routerLink="/buyer/myorderdetails" [queryParams]="{OrderID: order.OrderId}" class="btn btn-primary">View</button>
+							
+                            </td>
+                           
+                        </tr>
+                        <hr>
+                    </tbody>
+               
+					<!-- <tfoot>
+						
+						<tr  >
+							<td><a routerLink="/homepage" ><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+						</tr>
+					</tfoot> -->
+				</table>
+</div>
+
+
+<app-footer></app-footer>
+

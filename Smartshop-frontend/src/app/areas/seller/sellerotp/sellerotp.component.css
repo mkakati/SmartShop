@@ -1,0 +1,30 @@
+
+.header-logo{
+  
+    margin-top: 5px;
+}
+.logo img{
+    width: 110px;
+}
+.card{
+    width: 400px;    
+    margin-top: 30px;
+   
+}
+.card-header{
+    background-color: cadetblue !important;
+    color:white;
+    font-family: 'sans-serif';
+    
+}
+.otp{
+    margin-top: 20px;
+    border-radius: 25px;
+}
+.fp{
+    border-radius: 25px;
+}
+label{
+    margin-top: 10px;
+    font:bold;
+}

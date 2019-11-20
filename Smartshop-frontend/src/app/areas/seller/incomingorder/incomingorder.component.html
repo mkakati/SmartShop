@@ -1,0 +1,50 @@
+
+<app-sidenavbar></app-sidenavbar>
+<div class="col-md-12" id="customers" style="margin-top: 60px;"> 
+    <h2 class="text-center" style="background-color:white"> Incoming Orders</h2>
+    <div class="table-responsive table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Order Id / Date</th>
+            <th>Product Name</th>
+            <th>Amount</th>
+            <th>Quantity</th>
+            <th>Product Image</th>
+            <th>Shipping Address</th>
+            <th>Current Status</th>
+            <th>Change Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pro of order">
+            <td>{{pro.OrderId}}/{{pro.OrderDate}}</td>
+            <td>{{pro.ProductName}}</td>
+            <td>{{pro.Amount}}</td>
+            <td>{{pro.Quantity}}</td>
+           
+            
+            <td><img src="data:image/png;base64,{{pro.ImageUrl}}"></td>
+            <td>{{pro.Address}}</td>
+            <td>{{pro.StatusFlag}}</td>
+          <td>
+               
+                      <mat-form-field > 
+                            <mat-label >Select</mat-label>
+
+                            <select matNativeControl required (change)="onSelect($event.target.value,pro.OrdersMasterId)" >
+                              <option value="">Choose Status</option>
+                              
+                              <option  *ngIf="pro.StausFlag!='Rejected' && pro.StatusFlag=='Placed'" value="1">Accepted</option>
+                              <option  *ngIf="pro.StausFlag!='Rejected' && pro.StatusFlag=='Placed'" value="3">Rejected</option>
+                              <option  *ngIf="pro.StausFlag!='Rejected' && pro.StatusFlag!='Cancelled' && pro.StatusFlag!='Rejected' " value="5">Deliver</option>
+                            </select>
+                          </mat-form-field>
+                     
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+

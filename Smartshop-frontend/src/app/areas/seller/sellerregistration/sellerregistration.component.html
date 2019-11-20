@@ -1,0 +1,112 @@
+
+<div class="container-fluid">
+
+    <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="header-logo text-center" >
+            <a class="logo" href="#">
+                <img src="assets/images/smartshoplogo.jpg" alt="SmartShop">
+            </a>
+        </div>
+        <div class="btn btn-success" *ngIf="message!=null">{{message}}</div> 
+            <div class="card">
+
+                    <h5 class="card-header info-color white-text text-center py-4">
+                      <strong>Sign Up As Seller</strong>
+                    </h5>
+
+
+                    <div class="card-body px-lg-5 pt-0">
+
+
+                      <form class="text-center" [formGroup]="register" (ngSubmit)="onSubmit()">
+                           
+                        <!-- first name -->
+                        <div class="form-row">
+                            <div class="col">
+                            <div class="md-form">
+                                    <input formControlName="FirstName" pattern="[a-zA-Z]*" type="text" id="fname" class="form-control name" placeholder="First name" required autocomplete="off">
+                                    <div *ngIf=" FirstName.invalid && FirstName.touched">
+                                        <small *ngIf=" FirstName.errors?.required" class="text-danger">First name is required</small>
+                                        <small *ngIf="FirstName.errors?.pattern" class="text-danger">name have only alhabets</small>
+                                  </div>
+                                </div>
+                                </div>
+                         <!-- last name -->
+                         <div class="col">
+                            <div class="md-form">
+                                    <input formControlName="LastName"  pattern="[a-zA-Z]*" type="text" id="lname" class="form-control name" placeholder="Last name" required autocomplete="off">
+                                    <div *ngIf=" LastName.invalid && LastName.touched">
+                                        <small *ngIf=" LastName.errors?.required" class="text-danger">Last name is required</small>
+                                        <small *ngIf="LastName.errors?.pattern" class="text-danger">name have only alhabets</small>
+                                  </div>
+                                  </div>
+                                </div>
+                            </div>
+                        <!-- Email -->
+                        <div class="md-form">
+
+                          <input formControlName="Email"  type="email" id="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control mail" placeholder="E-mail"  required autocomplete="off">
+                          <div  *ngIf="Email.invalid && Email.touched">
+                              <small *ngIf="Email.errors?.required" class="text-danger">Email is Required.</small>
+                              <small *ngIf="Email.errors?.pattern" class="text-danger">Email is not in correct pattern.</small>
+                        </div>
+                       </div>
+                        <!-- Password -->
+                        <div class="md-form">
+
+                          <input formControlName="Password" type="password" id="password" class="form-control mail" placeholder="Password" >
+                          <div *ngIf=" Password.invalid && Password.touched">
+                              <small *ngIf=" Password.errors?.required" class="text-danger">Password is required</small>
+                              <small *ngIf="Password.errors?.minlength" class="text-danger">Password length must be 8</small>
+                              <small *ngIf="Password.errors?.maxlength" class="text-danger">Password length must be less than 20</small>
+                        </div>
+                        </div>
+  
+               
+              <div class="md-form">
+                    <div class="col">
+                    <input formControlName="Mobile" type="text" id="mobile" class="form-control mail" placeholder="Mobile No." pattern="[789][0-9]{9}">
+                          <div *ngIf=" Mobile.invalid && Mobile.touched">
+                              <small *ngIf=" Mobile.errors?.required" class="text-danger">mobile is required</small>
+                              <small *ngIf="Mobile.errors?.minlength" class="text-danger">require 10 digits.... </small>
+                              <small *ngIf="Mobile.errors?.maxlength" class="text-danger">require 10 digits....</small>
+                              <small *ngIf="Mobile.errors?.pattern" class="text-danger">contact mismatch</small>
+             </div>
+            </div>
+              </div>
+
+            <div class="md-form">
+
+              <input formControlName="GSTNo" type="text" id="gst" class="form-control name" placeholder="Gst" style="margin-left: 2px"  >
+              <div *ngIf="GSTNo.invalid && GSTNo.touched">
+                  <small *ngIf="GSTNo.errors?.required" class="text-danger">Gst  is required</small>
+                  <small *ngIf="GSTNo.errors?.minlength" class="text-danger">Gst length must be 6</small>
+                  <small *ngIf="GSTNo.errors?.maxlength" class="text-danger">Gst length must be 6</small>
+            </div>
+            </div>
+           
+
+                        <!-- Sign up button -->
+                        <button [disabled]='!register.valid'  class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0 signup" type="submit">Sign Up as Seller</button>
+
+                        <p> Already a member?
+                                <a routerLink="/seller/sellerlogin">Seller Login</a>
+                              
+                              </p>
+                              <ngx-spinner><p style="color: cornsilk" > Loading... </p>
+                              </ngx-spinner>
+                      </form>
+
+
+                   
+
+    </div>
+                  </div>
+    </div>
+    <div class="col-md-4"></div>
+    </div>
+</div>
+
+

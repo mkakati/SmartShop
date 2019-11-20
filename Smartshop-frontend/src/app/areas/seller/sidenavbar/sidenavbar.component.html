@@ -1,0 +1,86 @@
+<!-- <nav class="navbar navbar-light" style="background-color:black;">  
+    <span class="navbar-brand mb-0 h1 text-light" routerLink="/"><i class="fas fa-award"></i> Seller Dashboard</span>   -->
+    <!-- <span class="mr-auto"></span>   -->
+   
+    <!-- <button class="btn btn-info mr-2" routerLink="/add-pro" style="margin-left: 20px">Add Products</button>  
+    <button class="btn btn-info" routerLink="/list-pro">View Products</button>  
+    <button class="btn btn-info mr-2"  *ngIf="isSeller && !isBuyer" (click)="becomebuyer()" >Become a Buyer</button>  
+   
+    <button class="btn btn-info mr-2"  *ngIf="isSeller && isBuyer" routerLink="/homepage"   style="margin-left: 20px">Buy Now</button>  
+
+    <button class="btn btn-info mr-2"  *ngIf="isSeller "routerLink="/withdrawl"   style="margin-left: 20px">Link Bank Account</button>  
+    
+    <button class="btn btn-info mr-2"  *ngIf="isSeller" routerLink="/incomingorder"   style="margin-left: 20px">Incoming Order</button>  
+    <button class="btn btn-info" type="submit" (click)="logout()">LogOut</button>  
+   -->
+   <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black fixed-top">
+      <mdb-navbar-brand><a class="navbar-brand name" href="#">Seller Dashboard</a></mdb-navbar-brand>
+      <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown" dropdown style="margin-left: 634px;"> 
+      <div dropdownToggle type="button" class="nav-link dropdown-toggle waves-light btn btn-info mr-2" style="height: 38px;" >
+      Home<span class="caret" style="margin-left:27px"></span></div>
+      <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light"  mdbWavesEffect  routerLink="/add-pro">Add Products</a>
+          <a class="dropdown-item waves-light"  mdbWavesEffect routerLink="/list-pro">View Inventory</a>
+          <a class="dropdown-item waves-light"  mdbWavesEffect routerLink="/incomingorder">Incoming Order</a>
+          <a class="dropdown-item waves-light"  mdbWavesEffect routerLink="/sellerhistory">Seller History</a>
+          <a class="dropdown-item waves-light"  mdbWavesEffect routerLink="/sellerpayment">Seller Payment</a>
+          <a class="dropdown-item waves-light"  mdbWavesEffect (click)="pdf()">Download Seller PDF</a>
+          <a class="dropdown-item waves-light"  mdbWavesEffect (click)="Excelpdf()">Excel Seller PDF</a>
+      </div>
+  </li>
+ 
+  <li class="nav-item ">
+      <button class="btn btn-info mr-2"  *ngIf="isSeller && !isBuyer" (click)="becomebuyer()" style="margin-left: 10px; width: 153px;">Become a Buyer</button>  
+  </li> 
+  <li class="nav-item ">
+      <button class="btn btn-info mr-2"  *ngIf="isSeller && isBuyer" routerLink="/homepage" style="margin-left: 10px;">Buy Now</button> 
+  </li> 
+  <li class="nav-item ">
+      <button class="btn btn-info" type="submit" (click)="logout()" style="margin-left: 10px;">LogOut</button> 
+  </li> 
+
+        
+    
+  </ul>
+</links>
+<!-- Collapsible content -->
+
+</mdb-navbar>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- <mat-toolbar style="background-color:lightblue"color="warn">
+    <mat-toolbar-row>
+       
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="primary">
+        <mat-icon aria-hidden="false" aria-label="Example home icon"><h2 style="color: white">Products</h2></mat-icon>
+      </button>
+      <span><img src=""></span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #drawer mode="side" opened role="navigation" style="background-color:lightblue">
+      <mat-nav-list>
+        <a mat-list-item routerLink='/add-pro'>Add Products</a>
+        <a mat-list-item routerLink='/list-pro'>View Products</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container> -->
+<!-- SideNav slide-out button -->

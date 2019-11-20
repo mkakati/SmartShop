@@ -1,0 +1,54 @@
+
+<div class="container-fluid">
+
+    <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="header-logo text-center" >
+            <a class="logo" routerLink="/homepage">
+                <img src="assets/images/smartshoplogo.jpg" alt="fgvd">
+            </a>
+        </div>
+        <div class="btn btn-success" *ngIf="message!=null">{{message}}</div>
+            <div class="card">
+    
+                    <h5 class="card-header info-color white-text text-center py-4">
+                      <strong>Verification</strong>
+                    </h5>
+                  
+                    
+                    <div class="card-body px-lg-5 pt-0">
+                  
+                      
+                      <form class="text-center" style="color: #757575;" action="#!" [formGroup]="onetimepass" (ngSubmit)="onSubmit()">
+                  
+                      
+                        
+                        <div class="md-form">
+                          <label class="label">Thankyou for verifying E-mail account </label>
+                           </div>
+
+                           <div class="md-form">
+                          <input formControlName="otp" type="text" pattern="[0-9]*" id="otp" class="form-control otp" placeholder="Enter OTP here">
+                          <div *ngIf=" otp.invalid && otp.touched">
+                              <small *ngIf=" otp.errors?.required" class="text-danger">OTP is required</small>
+                              <small *ngIf="otp.errors?.minlength" class="text-danger">OTP length must be 6</small><br>
+                              <small *ngIf="otp.errors?.pattern" class="text-danger">Only digits</small>
+                        </div>
+                  
+                        </div>
+                        <!-- fp button -->
+                        <button [disabled]='!onetimepass.valid' class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0 fp" type="submit">Verify</button>
+                  <!-- <a routerLink="/account/fo"> change E-mail</a> -->
+                       
+
+                      </form>
+                    
+                  
+                    </div>
+                  
+                  </div>
+    </div>
+    <div class="col-md-4"></div>
+    </div>   
+    </div>

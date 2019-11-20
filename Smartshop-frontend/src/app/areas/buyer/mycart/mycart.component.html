@@ -1,0 +1,60 @@
+<app-header></app-header>
+
+<div class="container" style="margin-top: 100px;">
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:50%">Product</th>
+							<th style="width:10%">Price</th>
+							<th style="width:8%">Quantity</th>
+							<th style="width:22%" class="text-center">Subtotal</th>
+							<th style="width:10%"   >Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let cart of mycart">
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs"><img src="data:image/png;base64,{{cart.ImageUrl}}" alt="..." class="img-responsive"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin" style="margin-left: 10px;">{{cart.ProductName}}</h4>
+										<!-- <p>Quis aute iure reprehenderit </p> -->
+									</div>
+								</div>
+							</td>
+							<td data-th="Price">{{cart.UnitPrice}}Rs.</td>
+							<td data-th="Quantity" class="text-center" *ngIf="cart.InStock">{{cart.Quantity}}
+								<!-- <input type="number" class="form-control text-center" value="1"> -->
+							</td>
+							<td data-th="Quantity" class="text-center" *ngIf="!cart.InStock" style="color: red;">Your Quantity:{{cart.Quantity}}, Stock:{{cart.Stock}}
+								<!-- <input type="number" class="form-control text-center" value="1"> -->
+							</td>
+							<td data-th="Subtotal" class="text-center">{{cart.UnitPrice * cart.Quantity}}Rs.</td>
+							<td class="actions" data-th="">
+								<!-- <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button> -->
+								<button (click)="deleteItem(cart.CartId,cart.ProductName,cart.UnitPrice,cart.Quantity,cart.ProductId)" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<!-- <tr class="visible-xs">
+							<td class="text-center"><strong>Total 1.99</strong></td>
+						</tr> -->
+						<tr  >
+							<td><a routerLink="/homepage" ><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td><button class="btn btn-danger" (click)="deletecart()"  [disabled]="this.Iscartempty" style="margin-left: -19px;">Empty Cart</button></td>
+							<td colspan="1" class="hidden-xs" ></td>
+							<td class="hidden-xs text-center" *ngIf="total" ><strong>Total {{total.TotalAmount}}</strong></td>
+							<td><button routerLink="/account/login" [disabled]="!this.InStock || this.Iscartempty" *ngIf="!isLogin" class="btn btn-success">Checkout </button>
+							<button routerLink="/buyer/checkout" [disabled]="!this.InStock || this.Iscartempty" *ngIf="isLogin && (isVerified=='True')" class="btn btn-success">Checkout </button>
+							<button class="btn btn-success"  [disabled]="!this.InStock || this.Iscartempty" *ngIf="(isVerified=='False') && isLogin"  (click)="otpverify()" style="margin-left: -19px;">Checkout</button>
+							</td>
+							<ngx-spinner><p style="color: cornsilk" > Loading... </p>
+							</ngx-spinner>
+						</tr>
+					</tfoot>
+				</table>
+</div>
+
+
+<app-footer></app-footer>

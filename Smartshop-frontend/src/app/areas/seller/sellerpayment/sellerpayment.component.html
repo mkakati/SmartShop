@@ -1,0 +1,23 @@
+
+
+ 
+<app-sidenavbar></app-sidenavbar>
+ <br>
+ <div class="jumbotron">
+ <h3>Link Bank Account</h3>
+ <button class="btn btn-primary"  *ngIf="this.account==''"routerLink="/linkbank">Link Bank</button> 
+ <span *ngIf="this.account!=''"></span><br>
+ <button class="btn btn-primary" type="submit" *ngIf="this.account!=''"  (click)="unlink()">Unlink Account</button> 
+ <br />
+ <br />
+ <br />
+ <br />
+ 
+ <br />
+ <br />
+ 
+<h3>Money To Withdrawal</h3>
+<p>Total Amount Pending For Withdrawal: <b>Rs </b>{{this.withdrawal}} </p>
+<button class="btn btn-primary" [disabled]="this.account=='' ||this.withdrawal==0"  type="submit" (click)="withdrawalmoney()" >Withdrawal</button> 
+<br /><span *ngIf="this.account==''" style="color: red">You must link your account to withdraw money</span><br>
+</div>

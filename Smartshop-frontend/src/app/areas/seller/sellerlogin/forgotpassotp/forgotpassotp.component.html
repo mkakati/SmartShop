@@ -1,0 +1,62 @@
+<div class="container-fluid">
+
+        <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="header-logo text-center" >
+                <a class="logo" href="#">
+                    <img src="assets/images/smartshoplogo.jpg" alt="SmartShop" style="height: 157px;">
+                </a>
+            </div>
+            <div class="btn btn-success" *ngIf="message!=null">{{message}}</div>
+                <div class="card">
+    
+                        <h5 class="card-header info-color white-text text-center py-4">
+                          <strong>Sign in</strong>
+                        </h5>
+    
+    
+                        <div class="card-body px-lg-5 pt-0">
+    
+    
+                          <form class="text-center" style="color: #757575;" action="#!" [formGroup]="forpassotp" (ngSubmit)="onSubmit()">
+    
+                          
+                            <!-- Password -->
+                            <div class="md-form">
+    
+                              <input type="password" id="password" class="form-control mail" placeholder="New Password" formControlName="NewPassword">
+                              <div *ngIf="NewPassword.invalid && NewPassword.touched">
+                                <small *ngIf="NewPassword.errors?.required" class="text-danger">Password is required</small>
+                                <small *ngIf="NewPassword.errors?.minlength" class="text-danger">Password length must be 8</small>
+                                <small *ngIf="NewPassword.errors?.maxlength" class="text-danger">Password length must be less than 20</small>
+                            </div>
+                          </div>
+                            
+                          <div class="md-form">
+                            <input formControlName="cpass" type="password" class="form-control mail" placeholder="confirmed password">
+                            <div *ngIf="cpass.errors?.mismatch">
+                                <small *ngIf="cpass.errors?.mismatch" class="text-danger">Password not match</small>
+                                </div>
+                              </div>
+                              
+                        
+    
+                          <div class="md-form">
+                               <input formControlName="token" type="text" pattern="[0-9]+" id="token" class="form-control mail" placeholder="Enter OTP here">
+                              <div *ngIf="token.invalid && token.touched">
+                                <small *ngIf="token.errors?.required" class="text-danger">OTP is required</small>
+                                <small *ngIf="token.errors?.minlength" class="text-danger">OTP length must be 6</small><br>
+                                <small *ngIf="token.errors?.pattern" class="text-danger">Only digits</small>
+                               </div>
+                    
+                          </div> 
+    
+                          <button [disabled]='!forpassotp.valid' class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0 verify" type="submit">Verify</button>
+                    </form>
+                      </div>
+        </div>
+        <div class="col-md-4"></div>
+        </div>
+        </div>
+        </div>

@@ -1,0 +1,47 @@
+
+.name{
+    margin-top: 20px;
+    border-radius: 25px;
+}
+.header-logo{
+  
+    margin-top: 5px;
+}
+.logo img{
+    width: 110px;
+}
+.card{
+    width: 400px;    
+    margin-top: 30px;
+   
+}
+.card-header{
+    background-color:cadetblue !important;
+    color:white;
+    font-family: 'sans-serif';
+    
+}
+.mail{
+    margin-top: 20px;
+    border-radius: 25px;
+}
+.signup{
+    border-radius: 25px;
+}
+
+.option{
+    border-radius: 25px;
+    margin-top: 20px;
+}
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 181%;
+    margin-left: -11px;
+    width: 332px;
+}
+#lname {
+    margin-left: 23px;
+}

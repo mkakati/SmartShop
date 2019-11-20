@@ -1,0 +1,33 @@
+
+<app-sidenavbar></app-sidenavbar>
+<div class="col-md-12" id="customers" style="margin-top: 60px;"> 
+    <h2 class="text-center" style="background-color:white"> Seller History</h2>
+    <div class="table-responsive table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Total Amount</th>
+            <th>OrderDate</th>
+            <th>DeliveryDate</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pro of sales">
+            <td>{{pro.ProductName}}</td>
+            <td>{{pro.Quantity}}</td>
+            <td>{{pro.TotalAmount}}</td>
+            <td>{{pro.OrderDate}}</td>
+            <td>{{pro.DeliveryDate}}</td>
+            <td>{{pro.StatusFlag}}</td>
+            
+          
+           
+        
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,137 @@
+<app-header></app-header>
+
+<main class="mt-5 pt-4">
+    <div class="container wow fadeIn">
+      <h2 class="my-2 h2 text-center">Checkout form</h2>
+      <div class="row">
+        <div class="col-md-8 mb-4">
+          <div class="card">
+            <form class="card-body" [formGroup]="checkout" (ngSubmit)="onSubmit()">
+                <div class="row">  
+                    <div >
+            
+              <!--flat no-->
+              <div class="md-form mb-3">
+                <input type="text" id="FlatNo" class="form-control" placeholder="Flat No." pattern="[0-9]+" formControlName="FlatNo">
+                <div *ngIf="FlatNo.invalid && FlatNo.touched">
+                  <small *ngIf="FlatNo.errors?.required" class="text-danger">Flat No. is required</small>
+                  <small *ngIf="FlatNo.errors?.pattern" class="text-danger">only digits</small>
+                </div>
+              </div>
+
+              <!--address-->
+              <div class="md-form mb-3">
+                <input type="text" id="AddressLine1" class="form-control" placeholder="Address 1" formControlName="AddressLine1" >
+                <div *ngIf="AddressLine1.invalid && AddressLine1.touched">
+                  <small *ngIf="AddressLine1.errors?.required" class="text-danger">Address is required</small>
+              </div>
+              </div>
+
+              <!--address-2-->
+              <div class="md-form mb-3">
+                <input formControlName="AddressLine2" type="text" id="AddressLine2" class="form-control" placeholder="Address 2(optional)">
+              </div>
+
+              <!--Grid row-->
+              <div class="row">
+
+                <!--Grid column-->
+                <div class="md-form mb-3">
+                    <input formControlName="City" type="text" id="City" pattern="[a-zA-Z]*" class="form-control" placeholder="City" style="margin-left: 15px;" >
+                    <div *ngIf="City.invalid && City.touched">
+                      <small *ngIf="City.errors?.required" class="text-danger valid">City is required</small>
+                      <small *ngIf="City.errors?.pattern" class="text-danger valid ">No digits</small>
+                  </div>
+                  </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+               <div class="md-form mb-3">
+                <input formControlName="State" type="text" id="State"  pattern="[a-zA-Z]*" class="form-control" placeholder="State" style="margin-left: 30px;">
+                <div *ngIf="State.invalid && State.touched">
+                      <small *ngIf="State.errors?.required" class="text-danger valids">State is required</small>
+                  <small *ngIf="State.errors?.pattern" class="text-danger valids">No digits</small>
+              </div>
+              </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-3">
+
+                  <input formControlName="PIN" type="text" class="form-control" id="PIN" pattern="[0-9]+" placeholder="Pin Code" style="margin-left: 30px;">
+                  <div *ngIf="PIN.invalid && PIN.touched">
+                    <small *ngIf="PIN.errors?.required" class="text-danger valids">PIN is required</small>
+                    <small *ngIf="PIN.errors?.pattern" class="text-danger valids">only digits</small>
+                  </div>
+
+                </div>
+              </div>
+
+              <hr class="mb-4">
+              <button [disabled]='!checkout.valid' class="btn btn-primary btn-lg btn-block" type="submit">Add Address</button>
+
+</div>
+</div>
+</form>
+</div>
+</div>
+      
+<!--Grid column-->
+<div class="col-md-4 mb-4">
+
+    <!-- Heading -->
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-muted">Your cart</span>
+      <!-- <span class="badge badge-secondary badge-pill">3</span> -->
+    </h4>
+    <div style="height: 200px;overflow-y: scroll;">
+<div  *ngFor="let cart of mycart">
+    <ul class="list-group mb-3 z-depth-1">
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <h6 class="my-0">{{cart.ProductName}}</h6>
+        </div>
+        <span class="text-center">{{cart.Quantity}}</span>
+        <span class="text-center">{{cart.Quantity * cart.UnitPrice}}Rs.</span>
+    </ul>
+    </div></div>
+
+    <li class="list-group-item d-flex justify-content-between"  *ngIf="total">
+      <span>Total</span>
+   <span> <strong>{{total.TotalAmount}}Rs.</strong></span>  
+    </li>
+
+</div>
+</div>
+</div>
+  </main>
+
+
+<div class="row" style="margin-left: 20px;">
+  <div class="col-md-4 mb-4" style="margin-left: 100px;">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Saved Addresses</span>
+        </h4>
+        <div style="height: 200px;overflow-y: scroll;">
+  <div *ngFor="let cart of getaddress" >
+    <ul class="list-group mb-3 z-depth-1">
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div class="row">
+          <h6 class="my-0">{{cart.FlatNo}},{{cart.AddressLine1}},</h6> <br>
+           <h6 class="my-0">{{cart.AddressLine2}},</h6> <br>
+          <h6 class="my-0">{{cart.City}},{{cart.State}},{{cart.PIN}}</h6>
+        </div>
+       <span><input type="radio" name="radio" value="{{cart.AddressId}}" (change)="onRadioChange($event)">
+        <!-- <div *ngIf="radio.invalid && radio.touched">
+          <small *ngIf="radio.invalid && radio.touched" class="text-danger">address is required</small>
+        </div> -->
+      </span>
+    </ul>   </div>
+  </div></div>
+
+    <div class="col-md-4 mb-4" style="margin-top: 100px;margin-left: 200px;" >
+        <button  class="btn btn-primary btn-lg btn-block" type="submit" (click)="placeorder()" style="margin-left: 20%">place order</button>
+   
+    </div>
+  </div>
+      

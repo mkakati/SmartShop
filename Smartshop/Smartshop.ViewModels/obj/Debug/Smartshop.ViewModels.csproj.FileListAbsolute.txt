@@ -1,0 +1,16 @@
+D:\Mriganga\Smartshop\Smartshop.ViewModels\bin\Debug\Smartshop.ViewModels.dll
+D:\Mriganga\Smartshop\Smartshop.ViewModels\bin\Debug\Smartshop.ViewModels.pdb
+D:\Mriganga\Smartshop\Smartshop.ViewModels\obj\Debug\Smartshop.ViewModels.csprojAssemblyReference.cache
+D:\Mriganga\Smartshop\Smartshop.ViewModels\obj\Debug\Smartshop.ViewModels.csproj.CoreCompileInputs.cache
+D:\Mriganga\Smartshop\Smartshop.ViewModels\obj\Debug\Smartshop.ViewModels.dll
+D:\Mriganga\Smartshop\Smartshop.ViewModels\obj\Debug\Smartshop.ViewModels.pdb
+D:\smartShop\MS_sdirect\Smartshop\Smartshop.ViewModels\bin\Debug\Smartshop.ViewModels.dll
+D:\smartShop\MS_sdirect\Smartshop\Smartshop.ViewModels\bin\Debug\Smartshop.ViewModels.pdb
+D:\smartShop\MS_sdirect\Smartshop\Smartshop.ViewModels\bin\Debug\Microsoft.Owin.dll
+D:\smartShop\MS_sdirect\Smartshop\Smartshop.ViewModels\bin\Debug\Owin.dll
+D:\smartShop\MS_sdirect\Smartshop\Smartshop.ViewModels\bin\Debug\Microsoft.Owin.xml
+D:\smartShop\MS_sdirect\Smartshop\Smartshop.ViewModels\obj\Debug\Smartshop.ViewModels.csproj.CoreCompileInputs.cache
+D:\smartShop\MS_sdirect\Smartshop\Smartshop.ViewModels\obj\Debug\Smartshop.ViewModels.csproj.CopyComplete
+D:\smartShop\MS_sdirect\Smartshop\Smartshop.ViewModels\obj\Debug\Smartshop.ViewModels.dll
+D:\smartShop\MS_sdirect\Smartshop\Smartshop.ViewModels\obj\Debug\Smartshop.ViewModels.pdb
+D:\smartShop\MS_sdirect\Smartshop\Smartshop.ViewModels\obj\Debug\Smartshop.ViewModels.csprojAssemblyReference.cache

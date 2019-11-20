@@ -1,0 +1,71 @@
+<app-header></app-header>
+
+<mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'"  >
+    <mdb-carousel-item class="home">
+      <div class="view ">
+        <img class="d-block " src="assets/images/electronic-products.jpg" alt="First slide">
+        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+      </div>
+      <div class="carousel-caption" style="margin-bottom: 200px;">
+        <h2 class="h2-responsive" style="color:black">Get Upto 40% off</h2>
+      </div>
+    </mdb-carousel-item>
+    <mdb-carousel-item class="home">
+      <div class="view ">
+        <img class="d-block " src="assets/images/laptop.jpg" alt="Second slide">
+        <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+      </div>
+      <div class="carousel-caption">
+        <h2 class="h2-responsive" style="color:white;margin-bottom: 200px;">New Edition</h2>
+    
+      </div>
+    </mdb-carousel-item>
+    <mdb-carousel-item class="home">
+      <div class="view ">
+        <img class="d-block" src="assets/images/tv.jpg" alt="Third slide">
+        <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+      </div>
+      <div class="carousel-caption">
+        <h2 class="h2-responsive" style="color: black">Sumsung</h2>
+        <p style="color: black">Smart TV,Laptop,Tablet,SmartWatch</p>
+      </div>
+    </mdb-carousel-item>
+  </mdb-carousel>
+
+
+
+<hr>
+
+<h3 class="text-center">Recent Products</h3>
+<div class="container-fluid">
+<div class="row">
+  <div class="card col-md-2 " style="margin-left:40px;margin-top: 15px;" *ngFor="let pro of recent"  >
+    <img class="card-img-top" src="data:image/png;base64,{{pro.ImageUrl}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{pro.ProductName}}</h5>
+      <!-- <p class="card-text">Info: {{subcat.Description}}</p> -->
+      <p class="card-text text-center">Price: {{pro.UnitPrice}} Rs.</p>
+      <div class="row">
+      <span style="color: red;" *ngIf="pro.Stock==1">Only 1 left</span>
+      <span style="color: red;" *ngIf="pro.Stock==2">Only few left</span>
+      <button class="btn"  style="margin-left:13px;" type="submit" (click)="onclick(pro.ProductId)">View</button>
+      </div>
+      <div class="row">
+      <form [formGroup]="detailFormm" *ngIf="pro.Stock!=0">
+        <div class="formGroup inpt-tp-alg">
+        <input type="number" id="inputt" #quantity formControlName="quantity" value="1" min="1" max="" class="form-control" style=" width: 40px; padding:0%;margin-top: 11px;">
+        <!-- <input type="text"  style="display: none;" formControlName="ProductId" ng-value="{{pro.ProductId}}"> -->
+        <span class="number-increment"> <i class="ti-plus"></i></span>
+        <button class="btn" style="margin-top: 10px;margin-left:4px;" type="submit" (click)="onsubmit(pro.ProductId)">Add to <i class="fa fa-shopping-cart cart"></i></button>
+       </div>
+
+      </form>
+      <span style="color: red;margin-left: 40px;padding-top: 20px;" *ngIf="pro.Stock==0">Out Of Stock</span>
+   
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

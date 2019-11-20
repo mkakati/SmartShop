@@ -1,0 +1,30 @@
+<div class="container">
+    
+    <form class="mat-dialog" (ngSubmit)="submit" [formGroup]="ngForm">
+   
+
+      <div class="form" >
+                <select class="form-control" #cat formControlName="CategoryId" >
+                  <option value="">----Select Categories---</option>
+                  <option *ngFor="let util of utils" [value]="util.CategoryId">{{ util.CategoryName }} </option>
+                </select>
+                <div class="text-danger" *ngIf="isSubmitted && CategoryId.errors?.required">
+                  <sup>*</sup>Please select Utility
+                </div>
+              </div>
+
+         <div class="form">
+             <mat-form-field color="accent">
+               <textarea matInput #input class="form-control" placeholder="SubCategory Name" formControlName="SubCategoryName"    required ></textarea>
+               
+             </mat-form-field>
+           </div>
+          
+          <div mat-dialog-actions>
+         <button class="btn btn-primary" mat-button [type]="submit"  [mat-dialog-close]="1" [disabled]="!ngForm.valid"
+         (click)="AddSubCategories()">Save</button>
+              <button class="btn btn-secondary" mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+        </div>
+    </form>
+    </div>
+

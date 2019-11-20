@@ -1,0 +1,26 @@
+.btn{
+    background-color: cornflowerblue;
+    color:white;
+}
+
+
+#inputt
+{
+
+    margin-right: 10px;
+}
+.inpt-tp-alg input{ vertical-align: top; display: inline-block; margin-top:14px;     background: azure;}
+.card-img-top {
+  width: 140px;
+  height: 100px;
+  padding-left: 26%;
+  margin-top: 10px;
+  background-position: center;
+  border-top-left-radius: calc(.25rem - 1px);
+  border-top-right-radius: calc(.25rem - 1px);
+}
+.home{
+  margin-top: 50px;
+}
+
+

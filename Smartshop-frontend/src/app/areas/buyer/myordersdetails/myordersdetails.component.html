@@ -1,0 +1,87 @@
+<app-header></app-header>
+
+<div class="container" style="margin-top: 100px;">
+    <button class="btn btn-primary" (click)="generatepdf()">Generate Invoice</button>
+    <table id="customers" class="table table-hover table-condensed" *ngFor="let order of orderdetail;let i=index" >
+                    <thead>
+                       <tr>
+                           <td *ngIf="i<1">Transaction Id: {{order.TransactionId}}</td>
+                          
+                       </tr>
+                  <tr>
+                        <td *ngIf="i<1">Order Id: {{order.OrderId}}</td>
+                    
+                  </tr>
+
+                  <tr>
+                        <td *ngIf="i<1">Address: {{order.Address}}</td>
+                    
+                  </tr>
+                  <tr>
+                        <td *ngIf="i<1">Paymnent Status: {{order.PaymentStatus}}</td>
+                    
+                  </tr>
+                  
+                
+</thead>
+
+</table>
+
+
+
+
+
+<div class="container" style="margin-top: 50px;">
+        <table id="cart" class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                    <th style="width:30%">ProductName</th>
+                                    <th style="width:20%">UnitPrice</th>
+                                    <th style="width:20%">Quantity</th>
+                                    <th style="width:20%">Status</th>
+                                    <th style="width:20%">OrderDate</th>
+                                    <!-- <th style="width:20%">OrderId</th>
+                                    <th style="width:20%">Transaction Id</th> -->
+                                    <!-- <th style="width:20%">Paymnent Status</th> -->
+                                    <!-- <th style="width:20%">OrdersMasterId</th> -->
+                                    <th style="width:20%">Actions</th>
+                                  
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let order of orderdetail">
+                                            <td data-th="ProductName">
+                                                <div class="row">
+                                                    <div class="col-sm-2 hidden-xs"><img src="data:image/png;base64,{{order.ImageUrl}}" alt="..." class="img-responsive"/></div>
+                                                    <div class="col-sm-10">
+                                                        <h4 class="nomargin" style="margin-left: 60px;">{{order.ProductName}}</h4>
+                                                        <!-- <p>Quis aute iure reprehenderit </p> -->
+                                                    </div>
+                                                </div>
+                                            </td>
+                                <td data-th="UnitPrice">{{order.UnitPrice}}</td>
+                                <td data-th="Quantity">{{order.Quantity}}</td>
+                                <td data-th="Status">{{order.Statusflag}}</td>
+                                <td data-th="OrderDate" >{{order.OrderDate}}</td>
+                                <!-- <td data-th="OrderId" >{{order.OrderId}}</td>
+                                <td data-th="TransactionId" >{{order.TransactionId}}</td> -->
+                                <!-- <td data-th="PaymnentStatus">{{order.PaymentStatus}}</td> -->
+                                <!-- <td data-th="OrdersMasterId" >{{order.OrdersMasterId}}</td> -->
+                                <td class="actions" data-th="">
+                                    <button  class="btn btn-danger" *ngIf="!order.Statusflag=='Delivered' || !order.Statusflag=='Cancelled'|| 
+                                    order.Statusflag=='Placed' || order.Statusflag=='Accepted' || 
+                                    order.Statusflag=='Rejected'"
+                                     (click)="cancel(order.OrdersMasterId,order.UnitPrice)">Cancel</button>
+                                </td>
+                               
+                            </tr>
+                        
+                        </tbody>
+                        <ngx-spinner>redirecting...</ngx-spinner>
+    </table>
+    </div>
+    </div>
+    
+    <app-footer></app-footer>
+
+   

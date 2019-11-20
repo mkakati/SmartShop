@@ -1,0 +1,35 @@
+
+<app-sidenavbar></app-sidenavbar>
+<div class="col-md-12" id="customers" style="margin-top: 60px;">
+    <h2 class="text-center" style="background-color:white"> Products Details</h2>
+    <div class="table-responsive table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Product Description</th>
+            <th>Stock</th>
+            <th>Product Image</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pro of products">
+            <td>{{pro.ProductName}}</td>
+            <td>{{pro.UnitPrice}}</td>
+            <td>{{pro.Description}}</td>
+             <td *ngIf="pro.Stock==0" > Out of Stock</td>
+            <td *ngIf="pro.Stock!=0">{{pro.Stock}}</td>
+            <td><img src="data:image/png;base64,{{pro.ImageUrl}}"></td>
+            <td>
+
+              <button (click)="startEdit(pro.ProductId,pro.ProductName,pro.UnitPrice,pro.Description,pro.Stock)" style="margin-left: 20px;" class="btn btn-info"> Edit</button>
+              <button (click)="deleteItem(pro.ProductId,pro.ProductName,pro.UnitPrice,pro.Description,pro.Stock)" class="btn btn-info"style="margin-left: 10px"> Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+

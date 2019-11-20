@@ -1,0 +1,80 @@
+ <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo fixed-top">
+    <!-- <a class="logo" href="#">
+        <img src="assets/images/smartshoplogo.jpg" alt="SmartShop">
+    </a> -->
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand name" routerLink="/homepage">SmartShop</a></mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link waves-light" mdbWavesEffect routerLink="/homepage">Home<span class="sr-only" >(current)</span></a>
+            </li>
+
+             <li class="nav-item dropdown " dropdown  >
+                <div dropdownToggle  type="button" class="nav-link dropdown-toggle waves-light"  >Category
+                <!-- <span class="caret"></span> -->
+
+                     <ul class="dropdown-menu " style="height: 200px;overflow-y: scroll;">
+                      <option  *ngFor="let cat of category" (click)="direct(cat.CategoryId)" [ngValue]="cat.CategoryId" >{{cat.CategoryName}}</option>
+                      </ul>
+
+                  </div>
+                  </li>
+
+       <!-- Dropdown -->
+            <li class="nav-item dropdown" dropdown >
+                <div dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" *ngIf="!isLogin" >
+                Account<span class="caret"></span></div>
+                <div dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" *ngIf="isLogin && this.profile!=null">
+                        Hey, {{this.profile[0].FirstName}}<span class="caret"></span></div>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" *ngIf="!isLogin" mdbWavesEffect routerLink="/account/login">Login</a>
+                    <a class="dropdown-item waves-light" *ngIf="!isLogin" mdbWavesEffect routerLink="/account/register">Sign Up</a>
+                    <a class="dropdown-item waves-light" *ngIf="isLogin" mdbWavesEffect routerLink="/buyer/myprofile">My Profile</a>
+                    <a class="dropdown-item waves-light" *ngIf="isLogin" mdbWavesEffect routerLink="/buyer/myorders">My Orders</a>
+                    
+                    <a class="dropdown-item waves-light" *ngIf="isLogin" mdbWavesEffect routerLink="/account/changepassword">Change password</a>
+                    <!-- <div class="divider dropdown-divider"></div> -->
+                    <a class="dropdown-item waves-light" *ngIf="isLogin" mdbWavesEffect (click)="logout()" type="submit">Logout</a>
+                </div>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link waves-light" routerLink="/buyer/becomeseller" *ngIf="isLogin && !isSeller" mdbWavesEffect>Become Seller</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link waves-light" *ngIf="!isLogin" routerLink="/seller/sellerlogin" mdbWavesEffect>Seller Login</a>
+            </li>
+
+
+            <li class="nav-item ">
+                <a class="nav-link waves-light" *ngIf="isLogin && isSeller && isBuyer" routerLink="/seller/sellerlogin" mdbWavesEffect>Seller Dashboard</a>
+            </li> 
+            <li class="nav-item ">
+                <a class="nav-link waves-light" *ngIf="isLogin && isAdmin" routerLink="/admin" mdbWavesEffect>Admin Dashboard</a>
+            </li> 
+           
+             
+            
+        </ul>
+        <!-- Links -->
+
+<!-- Search form -->
+        <form class="form-inline waves-light" mdbWavesEffect>
+            <div class="form-group">
+                <input type="text" class="form-control" (change)="search($event)" placeholder="Search" ><i class="fa fa-search" style="margin-left: -25px;" (click)="onSearchClick()"></i>
+              </div>
+            
+        </form>
+
+        <!-- <i class="fa fa-shopping-cart cart"></i> -->
+         <label class="mycart" routerLink="/buyer/mycart"><i class="fa fa-shopping-cart cart">  My Cart</i></label>
+        <label class="quantity">{{this.cart.carttotal}}</label>
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>

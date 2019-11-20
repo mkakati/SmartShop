@@ -1,0 +1,52 @@
+
+<div class="container-fluid">
+
+    <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="header-logo text-center" >
+            <a class="logo" href="#">
+                <img src="assets/images/smartshoplogo.jpg" alt="fgvd">
+            </a>
+        </div>
+            <div class="card">
+    
+                    <h5 class="card-header info-color white-text text-center py-4">
+                      <strong>Forgot Password</strong>
+                    </h5>
+                  
+                    
+                    <div class="card-body px-lg-5 pt-0">
+                  
+                      
+                      <form class="text-center" style="color: #757575;" action="#!" [formGroup]="forgot" (ngsubmit)="onSubmit()">
+                  
+                        <!-- Email -->
+                        
+                        <div class="md-form">
+                          <label class="label">Enter the email address and verify OTP associated with your account. </label>
+                           </div>
+
+                           <div class="md-form">
+                              <input formControlName="Email"  type="email" id="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control mail" placeholder="E-mail"  required autocomplete="off">
+                              <div  *ngIf="Email.invalid && Email.touched">
+                                  <small *ngIf="Email.errors?.required" class="text-danger">Email is Required.</small>
+                                  <small *ngIf="Email.errors?.pattern" class="text-danger">Email is not in correct pattern.</small>
+                            </div>
+                        </div>
+                  
+                        
+                        <!-- fp button -->
+                        <button [disabled]='!forgot.valid' class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0 fp" type="submit">submit</button>
+                        <a routerLink="/sellerforgetpass">ForgotOtp</a>
+                       
+                      </form>
+                    
+                  
+                    </div>
+                  
+                  </div>
+    </div>
+    <div class="col-md-4"></div>
+    </div>   
+    </div>

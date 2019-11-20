@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7BFA0CF4-D754-4C02-A571-B798070D41B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Smartshop.ViewModels</RootNamespace>
+    <AssemblyName>Smartshop.ViewModels</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Admin\Buyerpdfforadmin.cs" />
+    <Compile Include="Models\Admin\MasterUserDetailsModel.cs" />
+    <Compile Include="Models\Admin\SellerDetails.cs" />
+    <Compile Include="Models\Admin\Sellerpdfforadmin.cs" />
+    <Compile Include="Models\Admin\testadmin.cs" />
+    <Compile Include="Models\ApiResponse.cs" />
+    <Compile Include="Models\Bank\testbank.cs" />
+    <Compile Include="Models\BuyertoSellerModel.cs" />
+    <Compile Include="Models\Buyer\AddCartModel.cs" />
+    <Compile Include="Models\Buyer\Buyerpdfmodel.cs" />
+    <Compile Include="Models\Buyer\CartDetailModel.cs" />
+    <Compile Include="Models\Buyer\BuyerAddress.cs" />
+    <Compile Include="Models\Buyer\CartToTempModel.cs" />
+    <Compile Include="Models\Buyer\DataModel.cs" />
+    <Compile Include="Models\Buyer\DeleteAddressModel.cs" />
+    <Compile Include="Models\Buyer\DeleteCartModel.cs" />
+    <Compile Include="Models\Buyer\DetailsAfterPayment.cs" />
+    <Compile Include="Models\Buyer\MyOrdersModel.cs" />
+    <Compile Include="Models\Buyer\MyProfile.cs" />
+    <Compile Include="Models\Buyer\OrderDetailsModel.cs" />
+    <Compile Include="Models\Buyer\PlaceOrderModel.cs" />
+    <Compile Include="Models\Buyer\SearchModel.cs" />
+    <Compile Include="Models\Buyer\testbuyer.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\ForgetPasswordModel.cs" />
+    <Compile Include="Models\LoginUserModel.cs" />
+    <Compile Include="Models\RegisterSellerModel.cs" />
+    <Compile Include="Models\Product\ProductBySubCate.cs" />
+    <Compile Include="Models\Product\ProductModel.cs" />
+    <Compile Include="Models\RegisterUserModel.cs" />
+    <Compile Include="Models\ResendOtp.cs" />
+    <Compile Include="Models\ResetPasswordModel.cs" />
+    <Compile Include="Models\Seller\ExcelReportModel.cs" />
+    <Compile Include="Models\Seller\Incomingorders.cs" />
+    <Compile Include="Models\Seller\mode.cs" />
+    <Compile Include="Models\Seller\ProductViewModel.cs" />
+    <Compile Include="Models\Seller\SaleHistoryModel.cs" />
+    <Compile Include="Models\Seller\SellerReport.cs" />
+    <Compile Include="Models\Seller\StatusModel.cs" />
+    <Compile Include="Models\Seller\testseller.cs" />
+    <Compile Include="Models\VerifyUserModel.cs" />
+    <Compile Include="Models\Product\SubCategoryModel.cs" />
+    <Compile Include="Models\Product\ViewModelCategory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,48 @@
+
+<div class="container-fluid">
+
+    <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="header-logo text-center" >
+            <a class="logo" routerLink="/homepage">
+                <img src="assets/images/smartshoplogo.jpg" alt="SmartShop">
+            </a>
+        </div>
+        <!-- <div class="btn btn-success" *ngIf="message!=null">{{message}}</div>  -->
+            <div class="card">
+
+                    <h5 class="card-header info-color white-text text-center py-4"  *ngFor="let profile of profile">
+                      <strong>Welcome {{profile.FirstName}}</strong>
+                    </h5>
+
+                    <div class="card-body px-lg-5 pt-0">
+
+                      <form class="text-center"  *ngFor="let profile of profile">
+                            <div class="md-form" style="margin-top:10px; ">
+                                Name: {{profile.FirstName}} {{profile.LastName}}
+                                </div>
+                             
+                            <div class="md-form" style="margin-top:10px; ">
+                                  Email: {{profile.Email}}
+                                  </div>
+                                
+                        <div class="md-form" style="margin-top:10px; ">
+                                 Contact No: {{profile.Mobile}}
+                       </div>
+                       
+                        <div class="md-form">
+
+                        </div>
+               
+              
+                    </form>
+                    </div>
+                    </div>
+                
+                    
+        
+    <div class="col-md-4"></div>
+    </div>
+
+</div>

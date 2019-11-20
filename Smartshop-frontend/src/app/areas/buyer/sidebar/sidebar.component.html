@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<div class="wrapper">
+    
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <label class="subcat">SubCategory</label>
+        </div>
+
+        <ul class="list-unstyled components">
+          
+            
+             <li class="list" *ngFor="let subcat of subcategory" [routerLink]="['prosubcat']" [queryParams]="{subCatId: subcat.SubCategoryId}" [value]="subcat.SubCategoryId">{{subcat.SubCategoryName}}  
+            </li>
+            
+        </ul>
+    </nav>
+  <div class="roter">
+      <router-outlet></router-outlet>
+    </div>
+</div>
+
+ 

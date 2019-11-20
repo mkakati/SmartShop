@@ -1,0 +1,42 @@
+.Search{
+    color: black;;
+}
+
+.name{
+    color: orange;
+    
+}
+.submit{
+    margin-left: 5px;
+}
+
+.cccc {
+    width: 500px;
+}
+.foot{
+    color: bisque;
+}
+
+.cart{
+    color:white;
+    margin-left: 10px;
+}
+
+.mycart{
+    color: white;
+}
+.quantity{
+    position: relative;
+    left: -4px;
+    top: -10px;
+    text-align: center;
+    border-radius: 7px;
+    width: 18px;
+    height: 18px;
+    background-color: #ff6161;
+    border: 1px solid indigo;
+    font-weight: 400;
+    color: #f0f0f0;
+    line-height: 16px;
+    font-size: 12px;
+    }

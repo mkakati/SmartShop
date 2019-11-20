@@ -1,0 +1,117 @@
+<div style="align-content: center">
+<div class="form-group" style="margin-top: 50px;">
+<app-sidenavbar></app-sidenavbar>
+<div class="container">
+  <div class="container">
+    <div class="col-md-6">  
+        <div class="header-logo text-center" >
+            <a class="logo" href="#">
+                <img src="assets/images/smartshoplogo.jpg" alt="SmartShop" style="height: 155px;">
+            </a>
+        </div>
+        <div class="alert alert-warning" *ngIf="token()==''">Your request is Pending for Admin approval, meanwhile you may add product but it will not be visible to buyer! </div>
+        <div class="alert alert-warning" *ngIf="token()=='False'">Your request is Rejected By Admin, contact for more details!</div>
+        <h2 class="text-center" style="background-color:cadetblue">{{proformlabel}}</h2>  
+        <form [formGroup]="addForm" novalidate class="form"> 
+          <fieldset>
+           
+           <div class="row">
+             <div class="col" >
+            <div class="form-group ">
+              <!-- <label class="tesi">Select Category</label> -->
+              <div class="form-group wrapper" >
+               
+                <select   class="form-control selection" #cat formControlName="CategoryId" (change)="onSelect(cat.value)">
+                  
+                  <option  value="" >----Select Categories---</option>
+                  
+                  <option  *ngFor="let util of utils" [value]="util.CategoryId" >{{ util.CategoryName }} </option>
+                
+                </select>
+               
+                <div class="text-danger" *ngIf="isSubmitted && CategoryId.errors?.required">
+                  <sup>*</sup>Please select Utility
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="col">
+            <div class="form-group">
+              <!-- <label class="tesi">Select SubCategory</label> -->
+              <div class="form-group" >
+                <select class="form-control"  formControlName="SubCategoryId">
+                  <option value="">----Select SubCategories---</option>
+                  <option *ngFor="let util of utilss" [value]="util.SubCategoryId">{{ util.SubCategoryName }} </option>
+                </select>
+                <div class="text-danger" *ngIf="isSubmitted && SubCategoryId.errors?.required">
+                  <sup>*</sup>Please select Utility
+                </div>
+              </div>
+            </div>
+            </div>
+           </div>     
+
+          <div class="row">
+            <div class="col">
+          <div class="form-group">  
+            <!-- <label  style="background:lightblue" for="proName">Product Name:</label>   -->
+            <input formControlName="ProductName" placeholder="Product Name" name="ProductName" class="form-control" id="ProductName">  
+            <div class="alert  alert-danger" *ngIf="addForm.get('ProductName').hasError('required') && addForm.get('ProductName').touched">  
+              Product Name is required  
+            </div>  
+          </div>  
+          </div>
+          <div class="col">
+        
+          <div class="form-group">  
+            <!-- <label  style="background:lightblue" for="proSalary">Unit Price:</label>   -->
+            <input formControlName="UnitPrice" placeholder="Unit price" name="UnitPrice" class="form-control" id="UnitPrice">  
+            <div class="alert  alert-danger" *ngIf="addForm.get('UnitPrice').hasError('required') && addForm.get('UnitPrice').touched">  
+              Unit Price is required.  
+            </div>  
+          </div>  
+          </div>
+          </div>
+        <div class="row">
+          <div class="col">
+          <div class="form-group">  
+            <!-- <label  style="background:lightblue" for="proDescription">Product Description:</label>   -->
+            <input formControlName="Description" placeholder="Description" name="Description" class="form-control" id="Description">  
+            <div class="alert  alert-danger" *ngIf="addForm.get('Description').hasError('required') && addForm.get('Description').touched">  
+              Product Description is required  
+            </div>  
+          </div> 
+          </div>
+          <div class="col">
+          
+          <div class="form-group">  
+            <!-- <label  style="background:lightblue" for="proStock">Stock:</label>   -->
+            <input formControlName="Stock" min="1" placeholder="Stock" type="number" name="Stock" class="form-control" id="Stock">  
+            <div class="alert  alert-danger" *ngIf="addForm.get('Stock').hasError('required') && addForm.get('Stock').touched">  
+              Stock is required  
+            </div>  
+          </div>
+          </div>
+        </div>  
+          <div class="form-group">
+            <!-- <label  style="background:lightblue" for="Image">Image</label> -->
+            <input type="file" class="form-control-file" formControlName="ImageUrl" name="imageUrl" class="form-control" id="imageUrl" (change)="handleFileInput($event.target.files)" >
+            <div class="alert  alert-danger"  *ngIf="addForm.get('ImageUrl').hasError('required') && addForm.get('ImageUrl').touched">  
+                Image is required  
+              </div>  
+        </div>
+     
+    
+          <button class="btn btn-primary" [disabled]='addForm.invalid' *ngIf="btnvisibility"  (click)="onSubmit()" style="margin-right: 109px">Save</button>  
+          <button (click)="openAddFileDialog()"class="btn btn-primary" >Add Category</button>
+          <button (click)="openAddSubDialog()"class="btn btn-primary" style="margin-left: 50px">Add SubCategory</button>
+        
+        
+
+          </fieldset>
+        </form>  
+      </div>  
+      </div>
+      </div>
+      </div>
+</div>

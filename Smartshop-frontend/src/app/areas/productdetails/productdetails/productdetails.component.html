@@ -1,0 +1,43 @@
+<app-header></app-header>    
+    <div class="row" *ngIf="productdetail" style="margin-top: 10%;">
+    <div class="col">
+    <div class="" >
+            <img src="data:image/png;base64,{{productdetail.ImageUrl}}" alt="SmartShop" style="height:350px;width: 400px;margin-left: 20%;">
+    <div class="" style="padding-right: 105px;"><div class="" style="height: 50px; transition-duration: 600ms; transition-timing-function: ease;"><div id="" class="" style="height: 300px; transform: translate3d(0px, 0px, 0px);"></div>
+    
+   
+    </div><div class="lSAction"><a class=""></a><a class=""></a></div></div><ul class="" style="margin-left: 5px; width: 100px; transition-duration: 600ms;  transform: translate3d(0px, 0px, 0px);">
+    </ul>
+    </div>
+
+    </div>
+    <div class="col-lg-5 jumbotron" style="margin-right:10%;">
+    <div class="s_product_text" >  
+          
+    <h3>{{productdetail.ProductName}}</h3>
+    <h2>Rs. {{productdetail.UnitPrice}} </h2>
+   
+    <p>
+   Description: {{productdetail.Description}}
+    </p>
+  </div>
+  <div class="card_area d-flex justify-content-between align-items-center">
+        <div class="product_count">
+        <span class="inumber-decrement"> <i class="ti-minus"></i></span>
+        <form [formGroup]="detailForm"  *ngIf="productdetail.Stock!=0">
+         Quantity: <input type="number"  formControlName="quantity"  class="form-control" value="1" min="1" style="width:120px;">
+        <span class="number-increment"> <i class="ti-plus"></i></span>
+    
+      
+            <button type="submit" (click)="onsubmit()" class="btn btn-danger">Add To Cart  <i class="fa fa-shopping-cart cart"></i></button> 
+            <span style="color: red;margin-left: 5px;" *ngIf="productdetail.Stock==1">Only 1 left</span>
+            <span style="color: red;margin-left: 5px;" *ngIf="productdetail.Stock==2">Only few left</span>
+        </form>
+        <span style="color: red;margin-left: 40px;padding-top: 20px;" *ngIf="productdetail.Stock==0">Out Of Stock</span>
+        
+     
+        </div>
+        </div>
+    </div>
+    </div>
+    <app-footer></app-footer>

@@ -1,0 +1,36 @@
+
+<app-header></app-header>
+<br/>
+<br/>
+<br/>
+<div class="form-row" style="margin-left: 150px;">
+    <div class="card" style="width: 17rem; margin-left: 20px;margin-top: 15px;" *ngFor="let subcat of search"  >
+      <img class="card-img-top" src="data:image/png;base64,{{subcat.ImageUrl}}" alt="Card image cap" >
+      <div class="card-body">
+        <h5 class="card-title">{{subcat.ProductName}}</h5>
+        <p class="card-text">Info: {{subcat.Description}}</p>
+        <p class="card-text">Price: {{subcat.UnitPrice}} Rs.</p>
+        <div class="row">
+          
+            <form [formGroup]="detailFormmm" *ngIf="subcat.Stock!=0">
+              <div class="formGroup inpt-tp-alg"  >
+              <!-- <input type="number" id="inputt" #quantity formControlName="quantity" value="1" min="1" max="10" class="form-control" style=" width: 25px; padding:0%;margin-top: 11px;    width: 96px; padding: 0%;
+              margin-top: 11px;
+              padding: 16px;
+              padding-left: 31px;
+              font-weight: 600;"> -->
+              <!-- <input type="text"  style="display: none;" formControlName="ProductId" ng-value="{{pro.ProductId}}"> -->
+              <!-- <span class="number-increment"> <i class="ti-plus"></i></span>
+              <button class="btn" style="margin-top: 10px;margin-left:4px;" type="submit" (click)="onsubmit(subcat.ProductId)">Add to <i class="fa fa-shopping-cart cart"></i></button> -->
+              <button class="btn"  style="     height: 38px; margin-bottom: -10px;  margin-left: 5px;" type="submit" (click)="onclickk(subcat.ProductId)">View</button>
+             </div>
+           
+            </form>
+            <span style="color: red;margin-left: 40px;padding-top: 20px;" *ngIf="subcat.Stock==0">Out Of Stock</span>
+          
+      </div>
+     
+    </div>
+    </div>
+    </div>
+  
